@@ -17,10 +17,8 @@ export default class TodoList extends Component {
 
   render(){
     const { tasks } = this.props;
+    const btnStyle = { marginTop: "-5px" };
     console.log("tasks:", tasks);
-    const doneBtn = {
-      "marginTop": "-5px"
-    }
 
     return (
       <div>
@@ -30,13 +28,12 @@ export default class TodoList extends Component {
             return (
               <li key={ task.id } className="list-group-item">{ task.name }
                 <button className="btn btn-warning btn-sm pull-right" 
-                  style={ doneBtn }
+                  style={ btnStyle }
                   onClick={ () => this.handleDelete(task.id) } >Done</button>
               </li>
             )
           })
         }
-
         </ul>
       </div>
     )

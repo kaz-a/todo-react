@@ -22,15 +22,14 @@ export default class Main extends Component {
         tasks: this.state.tasks.concat(task)
       })      
     })
-  };
+  }
 
   deleteTask(taskId){
     axios.delete(`/api/todo/${taskId}`)
     .then(res => res.data)
     .then(tasks => {
       this.setState({ tasks })
-    });
-
+    })
   }
 
   componentDidMount(){
@@ -39,7 +38,6 @@ export default class Main extends Component {
     .then(tasks => {
       this.setState({ tasks })
     })
-
   }
 
   render(){

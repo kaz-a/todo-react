@@ -5,12 +5,12 @@ const express = require("express"),
   db = require("./models"),
   Task = db.Task;
 
-app.use("/", express.static(path.join(__dirname)));
-app.use("/bootstrap", express.static(path.join(__dirname, "node_modules/bootstrap")));
+app.use("/dist", express.static(path.join(__dirname, "dist")));
+app.use("/vendor", express.static(path.join(__dirname, "node_modules")));
 app.use(bodyParser.json());
 
 app.get("/", (req, res, next) => {
-  res.sendFile("index.html");
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.get("/api/todo", (req, res, next) => {
